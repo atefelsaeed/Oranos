@@ -8,31 +8,50 @@ class CheackGroube extends StatefulWidget {
 }
 
 class _CheackGroubeState extends State<CheackGroube> {
-  bool _isChecked = true;
 
-  List<String> _texts = [
-    "InduceSmile.com," "Flutter.io",
-    "google.com",
-    "youtube.com",
-    "yahoo.com",
-    "gmail.com"
+  List<String> data = [
+    "Security",
+    "Supply Chain",
+    "Information Technology",
+    "Human Resource",
+    "Business Research",
   ];
+  List<String> userChecked = [];
+
+  void _onSelected(bool selected, String dataName) {
+    if (selected == true) {
+      setState(() {
+        userChecked.add(dataName);
+      });
+    } else {
+      setState(() {
+        userChecked.remove(dataName);
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      padding: EdgeInsets.all(8.0),
-      children: _texts.map((text) => CheckboxListTile(
-        title: Text(text),
-        value: _isChecked,
-        onChanged: (val) {
-          setState(() {
-            _isChecked = val!;
+    return ListView.builder(
+        itemCount: data.length,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, i) {
+          return ListTile(
+            contentPadding: const EdgeInsets.symmetric(vertical: -5),
+              title: Text(data[i]),
 
-          });
-        },
-      )).toList(),
-    );
+              leading: Checkbox(
+                activeColor: ColorManager.primaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                value: userChecked.contains(data[i]),
+                onChanged: (val) {
+                  _onSelected(val!, data[i]);
+                  print(userChecked);
+                },
+              )
+            //you can use checkboxlistTile too
+          );
+        });
   }
 }

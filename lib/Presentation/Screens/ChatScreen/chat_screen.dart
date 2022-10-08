@@ -18,27 +18,37 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
           children: [
             SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ItemBotChat(msg: 'kkkkkkkkk'),
-                  const ItemUserChat(msg: 'oooooooooo'),
-                  const ItemBotChat(msg: 'kkkkkkkkk'),
-                  const ItemUserChat(msg: 'oooooooooo'),
-                  const ItemBotChat(msg: 'kkkkkkkkk'),
-                  const ItemUserChat(msg: 'oooooooooo'),
-                  const ItemBotChat(msg: 'kkkkkkkkk'),
-
-                  // CheackGroube()
+                  const ItemBotChat(msg: 'Hi, Whats you name firstName?'),
+                  const ItemUserChat(msg: 'Abdalla'),
+                  const ItemBotChat(msg: 'Ok, Abdalla whats your lastName?'),
+                  const ItemUserChat(msg: 'Salah'),
+                  const ItemBotChat(msg: 'Mr.Abdalla Salah Whats your title?'),
+                  const ItemUserChat(msg: 'Front-End Developer'),
+                  const ItemBotChat(
+                      msg: 'What categories you will need expert in?'),
+                  const CheackGroube(),
+                  Center(
+                    child: Text(
+                      'Say Done, or press send to apply.',
+                      style: TextStyle(color: ColorManager.grayColor),
+                    ),
+                  ),
+                  SizedBox(
+                    height: height(context) * .06,
+                  ),
                 ].padded(
                   const EdgeInsets.all(10),
                 ),
               ),
             ),
-            const Spacer(),
+            // const Spacer(),
             Container(
               margin: const EdgeInsets.all(8),
               child: Row(
@@ -76,7 +86,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   IconButton(
                       onPressed: () {
-                        Navigation.navigateWithName(context, Routes.homeDashBoardRoute);
+                        Navigation.navigateWithName(
+                            context, Routes.homeDashBoardRoute);
                       },
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),

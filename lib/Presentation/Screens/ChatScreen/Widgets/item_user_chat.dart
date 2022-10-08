@@ -9,30 +9,27 @@ class ItemUserChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Container(
-
-        margin: const EdgeInsets.symmetric(vertical: 5),
-        child: Row(
-          children: [
-            const Image(image: AssetImage(ImageAssets.userChat)),
-            AppSize.spaceWidth2(context),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: width(context) * .6,
-              decoration: BoxDecoration(
-                  color: ColorManager.primaryColor,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Text(
-                msg,
-                style: TextStyle(
-                  color: ColorManager.wight,
-                ),
+      child: Row(
+        children: [
+          const Image(image: AssetImage(ImageAssets.userChat)),
+          AppSize.spaceWidth2(context),
+          Container(
+            padding: const EdgeInsets.all(10),
+            width: width(context) * .6,
+            decoration: BoxDecoration(
+                color: ColorManager.primaryColor,
+                borderRadius: BorderRadius.circular(10)),
+            child: Text(
+              msg,
+              textDirection: TextDirection.ltr,
+              style: TextStyle(
+                color: ColorManager.wight,
               ),
             ),
+          ),
 
 
-          ],
-        ),
+        ],
       ),
     );
   }

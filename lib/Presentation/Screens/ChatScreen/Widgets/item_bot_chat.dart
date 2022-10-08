@@ -9,13 +9,13 @@ class ItemBotChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 1),
       child: Row(
         children: [
           const Image(image: AssetImage(ImageAssets.botIcon)),
           AppSize.spaceWidth2(context),
           Container(
-            width: width(context) * .6,
+            width: width(context) * .65,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 color: ColorManager.grayCircleColor,
